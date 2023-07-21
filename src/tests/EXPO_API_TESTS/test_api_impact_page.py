@@ -9,7 +9,7 @@ except BaseException:
     raise Exception('Error')
 
 
-def test_status_code_impact_json():
+def test_status_code_impact_page():
     assert status_code_api == 200
 
 

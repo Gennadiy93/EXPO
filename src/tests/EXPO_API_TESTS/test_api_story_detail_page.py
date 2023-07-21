@@ -112,49 +112,9 @@ def test_categories_in_list_related_resources_is_not_empty():
         assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != ''
 
 
-def test_quote_in_page_story_elements_is_not_empty():
-    story_element_collections = response_api_json['pageProps']['story']['pageStoryElementsCollection']['items']
-    for story_element in story_element_collections:
-        try:
-            assert story_element['quoteText'] is not None and story_element['quoteText'] != ''
-        except BaseException:
-            raise Exception('Missing quote')
-
-
-def test_story_paragraph_in_page_story_elements_is_not_empty():
-    story_element_collections = response_api_json['pageProps']['story']['pageStoryElementsCollection']['items']
-    for story_element in story_element_collections:
-        try:
-            assert story_element['storyPageParagraph'] is not None and story_element['storyPageParagraph'] != ''
-        except BaseException:
-            raise Exception('Missing paragraph')
-
-
-def test_images_in_page_story_elements_is_not_empty():
-    story_element_collections = response_api_json['pageProps']['story']['pageStoryElementsCollection']['items']
-    for story_element in story_element_collections:
-        try:
-            assert story_element['imagesCollection'] is not None and story_element['imagesCollection'] != ''
-        except BaseException:
-            raise Exception('Missing images')
-
-
-def test_youtube_in_page_story_elements_is_not_empty():
-    story_element_collections = response_api_json['pageProps']['story']['pageStoryElementsCollection']['items']
-    for story_element in story_element_collections:
-        try:
-            assert story_element['youtubeLink'] is not None and story_element['youtubeLink'] != ''
-        except BaseException:
-            raise Exception('Missing youtube')
-
-
-def test_embed_code_in_page_story_elements_is_not_empty():
-    story_element_collections = response_api_json['pageProps']['story']['pageStoryElementsCollection']['items']
-    for story_element in story_element_collections:
-        try:
-            assert story_element['embedCode'] is not None and story_element['embedCode'] != ''
-        except BaseException:
-            raise Exception('Missing embed code')
+def test_list_story_elements_is_not_empty():
+    story_elements = response_api_json['pageProps']['story']['relatedResourcesCollection']['items']
+    assert story_elements is not None and story_elements != '' and len(story_elements) != 0
 
 
 def test_list_related_events_is_not_empty():

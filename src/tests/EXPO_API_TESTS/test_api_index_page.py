@@ -68,9 +68,45 @@ def test_list_services_is_not_empty():
     assert list_services is not None and list_services != '' and len(list_services) != 0
 
 
+def test_pillar_title_in_list_services_is_not_empty():
+    list_services = response_api_json['pageProps']['services']
+    for services in list_services:
+        assert services['pillarTitle'] is not None and services['pillarTitle'] != '', 'Missing title'
+
+
+def test_pillar_image_in_list_services_is_not_empty():
+    list_services = response_api_json['pageProps']['services']
+    for services in list_services:
+        assert services['pillarImage'] is not None and services['pillarImage'] != '', 'Missing image for pillar'
+
+
 def test_list_resources_is_not_empty():
     list_resources = response_api_json['pageProps']['resources']
     assert list_resources is not None and list_resources != '' and len(list_resources) != 0
+
+
+def test_resource_title_in_list_resources_is_not_empty():
+    list_resources = response_api_json['pageProps']['resources']
+    for resource in list_resources:
+        assert resource['title'] is not None and resource['title'] != ''
+
+
+def test_resource_slug_in_list_resources_is_not_empty():
+    list_resources = response_api_json['pageProps']['resources']
+    for resource in list_resources:
+        assert resource['slug'] is not None and resource['slug'] != ''
+
+
+def test_resource_thumbnail_in_list_resources_is_not_empty():
+    list_resources = response_api_json['pageProps']['resources']
+    for resource in list_resources:
+        assert resource['resourceThumbnail'] is not None and resource['resourceThumbnail'] != ''
+
+
+def test_categories_collection_in_list_resources_is_not_empty():
+    list_resources = response_api_json['pageProps']['resources']
+    for resource in list_resources:
+        assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != '' and len(resource['categoriesCollection']) != 0
 
 
 def test_home_slider_collection_is_not_empty():
@@ -78,9 +114,69 @@ def test_home_slider_collection_is_not_empty():
     assert home_slider_collection is not None and home_slider_collection != '' and len(home_slider_collection) != 0
 
 
+def test_page_title_in_home_slider_collection_is_not_empty():
+    home_slider_collection = response_api_json['pageProps']['homeSliderCollection']
+    for item in home_slider_collection:
+        if 'pageTitle' in item.keys():
+            assert item['pageTitle'] is not None and item['pageTitle'] != ''
+        elif 'newsTitle' in item.keys():
+            assert item['newsTitle'] is not None and item['newsTitle'] != ''
+
+
+def test_slug_in_home_slider_collection_is_not_empty():
+    home_slider_collection = response_api_json['pageProps']['homeSliderCollection']
+    for item in home_slider_collection:
+        if 'pageTitle' in item.keys():
+            assert item['slug'] is not None and item['slug'] != ''
+        elif 'newsTitle' in item.keys():
+            assert item['newsCtaBtnLink'] is not None and item['newsCtaBtnLink'] != ''
+
+
+def test_thumbnail_in_home_slider_collection_is_not_empty():
+    home_slider_collection = response_api_json['pageProps']['homeSliderCollection']
+    for item in home_slider_collection:
+        if 'onlineEventOpeningHoursNew' in item.keys():
+            assert item['futureBannerEvent'] is not None and item['futureBannerEvent'] != ''
+        elif 'newsTitle' in item.keys():
+            assert item['futureBannerNews'] is not None and item['futureBannerNews'] != ''
+
+
+def test_tag_in_home_slider_collection_is_not_empty():
+    home_slider_collection = response_api_json['pageProps']['homeSliderCollection']
+    for item in home_slider_collection:
+        if 'pageTitle' in item.keys():
+            assert item['tag'] is not None and item['tag'] != ''
+        elif 'newsTitle' in item.keys():
+            assert item['tag'] is not None and item['tag'] != ''
+
+
 def test_story_slider_is_not_empty():
     story_slider = response_api_json['pageProps']['storyslider']
     assert story_slider is not None and story_slider != '' and len(story_slider) != 0
+
+
+def test_story_title_in_list_stories_is_not_empty():
+    story_slider = response_api_json['pageProps']['storyslider']
+    for story in story_slider:
+        assert story['pageTitle'] is not None and story['pageTitle'] != ''
+
+
+def test_story_slug_in_list_stories_is_not_empty():
+    story_slider = response_api_json['pageProps']['storyslider']
+    for story in story_slider:
+        assert story['slug'] is not None and story['slug'] != ''
+
+
+def test_story_thumbnail_in_list_stories_is_not_empty():
+    story_slider = response_api_json['pageProps']['storyslider']
+    for story in story_slider:
+        assert story['heroSquareImage'] is not None and story['heroSquareImage'] != ''
+
+
+def test_categories_collection_in_list_stories_is_not_empty():
+    story_slider = response_api_json['pageProps']['storyslider']
+    for story in story_slider:
+        assert story['categoriesCollection'] is not None and story['categoriesCollection'] != '' and len(story['categoriesCollection']) != 0
 
 
 def test_marketing_banner_is_not_empty():
@@ -89,5 +185,5 @@ def test_marketing_banner_is_not_empty():
 
 
 def test_hero_image_is_not_empty():
-    hero_image = response_api_json['pageProps']['heroImage']['url']
+    hero_image = response_api_json['pageProps']['heroImage']
     assert hero_image is not None and hero_image != ''

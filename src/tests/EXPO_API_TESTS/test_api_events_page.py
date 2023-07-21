@@ -33,9 +33,68 @@ def test_list_news_is_not_empty():
     assert list_news is not None and list_news != '' and len(list_news) != 0
 
 
+def test_news_title_in_list_news_is_not_empty():
+    list_news = response_api_json['pageProps']['slider']
+    for news in list_news:
+        assert news['pageTitle'] is not None and news['pageTitle'] != ''
+
+
+def test_news_slug_in_list_news_is_not_empty():
+    list_news = response_api_json['pageProps']['slider']
+    for news in list_news:
+        assert news['slug'] is not None and news['slug'] != ''
+
+
+def test_news_image_in_list_news_is_not_empty():
+    list_news = response_api_json['pageProps']['slider']
+    for news in list_news:
+        assert news['eventHeroLandscapeImage'] is not None and news['eventHeroLandscapeImage'] != ''
+
+
 def test_list_events_collection_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     assert list_events_collection is not None and list_events_collection != '' and len(list_events_collection) != 0
+
+
+def test_titles_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        assert event['pageTitle'] is not None and event['pageTitle'] != ''
+
+
+def test_slug_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        assert event['slug'] is not None and event['slug'] != ''
+
+
+def test_event_type_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        assert event['eventType'] is not None and event['eventType'] != ''
+
+
+def test_time_event_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        if event['eventType'] == 'Virtual':
+            assert event['onlineEventOpeningHoursNew'] is not None and event['onlineEventOpeningHoursNew'] != '', event['pageTitle']
+        if event['eventType'] == 'In-Person':
+            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != ''
+        if event['eventType'] == 'In-Person & Virtual':
+            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != '' and event['onlineEventOpeningHoursNew'] is not None and event['onlineEventOpeningHoursNew'] != ''
+
+
+def test_category_collection_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        assert event['categoriesCollection'] is not None and event['categoriesCollection'] != ''
+
+
+def test_thumbnail_image_in_list_events_is_not_empty():
+    list_events_collection = response_api_json['pageProps']['events']
+    for event in list_events_collection:
+        assert event['eventHeroSquareImage'] is not None and event['eventHeroSquareImage'] != ''
 
 
 def test_marketing_banner_is_not_empty():

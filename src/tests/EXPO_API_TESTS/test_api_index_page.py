@@ -1,7 +1,5 @@
 from src.EXPO_API.API.API import API
 
-import pytest
-
 try:
     api = API()
     response_api = api.get_index_page()

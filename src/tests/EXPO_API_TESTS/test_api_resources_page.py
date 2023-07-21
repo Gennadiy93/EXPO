@@ -1,4 +1,4 @@
-from src.EXPO_API.API.API import API
+from src.EXPO_API.API import API
 
 try:
     api = API()

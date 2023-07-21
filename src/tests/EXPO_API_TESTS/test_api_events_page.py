@@ -1,4 +1,4 @@
-from src.EXPO_API.API.API import API
+from src.EXPO_API.API import API
 
 try:
     api = API()
@@ -79,10 +79,10 @@ def test_time_event_in_list_events_is_not_empty():
     for event in list_events_collection:
         if event['eventType'] == 'Virtual':
             assert event['onlineEventOpeningHoursNew'] is not None and event['onlineEventOpeningHoursNew'] != '', event['pageTitle']
-        if event['eventType'] == 'In-Person':
-            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != ''
-        if event['eventType'] == 'In-Person & Virtual':
-            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != '' and event['onlineEventOpeningHoursNew'] is not None and event['onlineEventOpeningHoursNew'] != ''
+        elif event['eventType'] == 'In-Person':
+            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != '', event['pageTitle']
+        elif event['eventType'] == 'In-Person & Virtual':
+            assert event['inPersonOpeningHoursNew'] is not None and event['inPersonOpeningHoursNew'] != '' and event['onlineEventOpeningHoursNew'] is not None and event['onlineEventOpeningHoursNew'] != '', event['pageTitle']
 
 
 def test_category_collection_in_list_events_is_not_empty():

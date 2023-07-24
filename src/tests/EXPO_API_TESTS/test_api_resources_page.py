@@ -36,25 +36,25 @@ def test_list_news_is_not_empty():
 def test_news_title_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['news']
     for news in list_news:
-        assert news['newsTitle'] is not None and news['newsTitle'] != ''
+        assert news['newsTitle'] is not None and news['newsTitle'] != '', f'Missing news title{news}'
 
 
 def test_news_subtitle_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['news']
     for news in list_news:
-        assert news['newsSubtitle'] is not None and news['newsSubtitle'] != ''
+        assert news['newsSubtitle'] is not None and news['newsSubtitle'] != '', f'Missing news subtitle{news}'
 
 
 def test_news_link_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['news']
     for news in list_news:
-        assert news['newsCtaBtnLink'] is not None and news['newsCtaBtnLink'] != ''
+        assert news['newsCtaBtnLink'] is not None and news['newsCtaBtnLink'] != '', f'Missing news link{news}'
 
 
 def test_news_image_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['news']
     for news in list_news:
-        assert news['newsImage'] is not None and news['newsImage'] != ''
+        assert news['newsImage'] is not None and news['newsImage'] != '', f'Missing news image{news}'
 
 
 def test_list_resources_collection_is_not_empty():
@@ -66,25 +66,25 @@ def test_list_resources_collection_is_not_empty():
 def test_titles_in_list_resources_is_not_empty():
     list_resources_collection = response_api_json['pageProps']['resources']
     for resource in list_resources_collection:
-        assert resource['title'] is not None and resource['title'] != ''
+        assert resource['title'] is not None and resource['title'] != '', f'Missing resource title{resource}'
 
 
 def test_slug_in_list_resources_is_not_empty():
     list_resources_collection = response_api_json['pageProps']['resources']
     for resource in list_resources_collection:
-        assert resource['slug'] is not None and resource['slug'] != ''
+        assert resource['slug'] is not None and resource['slug'] != '', f'Missing resource slug{resource}'
 
 
 def test_categories_in_list_resources_is_not_empty():
     list_resources_collection = response_api_json['pageProps']['resources']
     for resource in list_resources_collection:
-        assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != ''
+        assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != '', f'Missing resource category{resource}'
 
 
 def test_thumbnail_image_in_list_resources_is_not_empty():
     list_resources_collection = response_api_json['pageProps']['resources']
     for resource in list_resources_collection:
-        assert resource['resourceThumbnail'] is not None and resource['resourceThumbnail'] != ''
+        assert resource['resourceThumbnail'] is not None and resource['resourceThumbnail'] != '', f'Missing resource thumbnail{resource}'
 
 
 def test_marketing_banner_is_not_empty():

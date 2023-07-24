@@ -36,7 +36,7 @@ def test_list_news_is_not_empty():
 def test_news_title_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['slider']
     for news in list_news:
-        assert news['pageTitle'] is not None and news['pageTitle'] != ''
+        assert news['pageTitle'] is not None and news['pageTitle'] != '', f'Missing news title{news}'
 
 
 def test_news_slug_in_list_news_is_not_empty():
@@ -48,7 +48,7 @@ def test_news_slug_in_list_news_is_not_empty():
 def test_news_image_in_list_news_is_not_empty():
     list_news = response_api_json['pageProps']['slider']
     for news in list_news:
-        assert news['eventHeroLandscapeImage'] is not None and news['eventHeroLandscapeImage'] != ''
+        assert news['eventHeroLandscapeImage'] is not None and news['eventHeroLandscapeImage'] != '', f'Missing news image{news}'
 
 
 def test_list_events_collection_is_not_empty():
@@ -59,19 +59,19 @@ def test_list_events_collection_is_not_empty():
 def test_titles_in_list_events_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     for event in list_events_collection:
-        assert event['pageTitle'] is not None and event['pageTitle'] != ''
+        assert event['pageTitle'] is not None and event['pageTitle'] != '', f'Missing event title{event}'
 
 
 def test_slug_in_list_events_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     for event in list_events_collection:
-        assert event['slug'] is not None and event['slug'] != ''
+        assert event['slug'] is not None and event['slug'] != '', f'Missing event slug{event}'
 
 
 def test_event_type_in_list_events_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     for event in list_events_collection:
-        assert event['eventType'] is not None and event['eventType'] != ''
+        assert event['eventType'] is not None and event['eventType'] != '', f'Missing event type{event}'
 
 
 def test_time_event_in_list_events_is_not_empty():
@@ -88,13 +88,13 @@ def test_time_event_in_list_events_is_not_empty():
 def test_category_collection_in_list_events_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     for event in list_events_collection:
-        assert event['categoriesCollection'] is not None and event['categoriesCollection'] != ''
+        assert event['categoriesCollection'] is not None and event['categoriesCollection'] != '', f'Missing event categories{event}'
 
 
 def test_thumbnail_image_in_list_events_is_not_empty():
     list_events_collection = response_api_json['pageProps']['events']
     for event in list_events_collection:
-        assert event['eventHeroSquareImage'] is not None and event['eventHeroSquareImage'] != ''
+        assert event['eventHeroSquareImage'] is not None and event['eventHeroSquareImage'] != '', f'Missing event thumbnail{event}'
 
 
 def test_marketing_banner_is_not_empty():

@@ -171,8 +171,8 @@ def test_time_event_in_related_events_is_not_empty():
 
 
 def test_list_page_elements_is_not_empty():
-    story_elements = response_api_json['pageProps']['story']['relatedResourcesCollection']['items']
-    assert story_elements is not None and story_elements != '' and len(story_elements) != 0
+    service_elements = response_api_json['pageProps']['elements']
+    assert service_elements is not None and service_elements != '' and len(service_elements) != 0
 
 
 def test_page_elements_collection_is_not_empty():

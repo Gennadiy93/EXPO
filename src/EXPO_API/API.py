@@ -22,7 +22,10 @@ class API():
         self.url_about_us_empty_type_page = url['url_api_about_us_empty_type_page']
         self.url_about_us_carousel_gallery_type_page = url['url_api_about_us_carousel_gallery_type_page']
         self.url_about_us_hero_img_type_page = url['url_api_about_us_hero_img_type_page']
-
+        self.url_inperson_free_event_detail_page = url['url_api_inperson_free_event_detail_page']
+        self.url_inperson_pay_event_detail_page = url['url_api_inperson_pay_event_detail_page']
+        self.url_online_free_event_detail_page = url['url_api_online_free_event_detail_page']
+        self.url_online_pay_event_detail_page = url['url_api_online_pay_event_detail_page']
     @staticmethod
     def return_formatted(response_status_code: int, response_json: Any) -> Dict[str, Any]:
         return {'status': response_status_code, 'json': response_json}
@@ -69,4 +72,20 @@ class API():
 
     def get_about_us_hero_img_type_page(self) -> Dict[str, Any]:
         response = self.requests.get(self.url_about_us_hero_img_type_page)
+        return API.return_formatted(response.status_code, response.json())
+
+    def get_inperson_free_event_detail_page(self) -> Dict[str, Any]:
+        response = self.requests.get(self.url_inperson_free_event_detail_page)
+        return API.return_formatted(response.status_code, response.json())
+
+    def get_inperson_pay_event_detail_page(self) -> Dict[str, Any]:
+        response = self.requests.get(self.url_inperson_pay_event_detail_page)
+        return API.return_formatted(response.status_code, response.json())
+
+    def get_online_free_event_detail_page(self) -> Dict[str, Any]:
+        response = self.requests.get(self.url_online_free_event_detail_page)
+        return API.return_formatted(response.status_code, response.json())
+
+    def get_online_pay_event_detail_page(self) -> Dict[str, Any]:
+        response = self.requests.get(self.url_online_pay_event_detail_page)
         return API.return_formatted(response.status_code, response.json())

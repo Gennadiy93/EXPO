@@ -23,7 +23,7 @@ def test_impact_desc_is_not_empty():
     assert impact_desc is not None and impact_desc != ''
 
 
-def test_list_impact_filters_is_not_empty():
+def test_list_filters_is_not_empty():
     impact_filters = response_api_json['pageProps']['impactPageFilters']
     assert impact_filters is not None and impact_filters != '' and len(impact_filters) != 0
 

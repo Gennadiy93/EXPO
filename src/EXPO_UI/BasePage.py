@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
 from src.data.configuration import generate_link
-from src.tests.conftest import setup
+
 
 
 class BasePage:
@@ -20,6 +20,7 @@ class BasePage:
         self.main_page_impact_slider_cards_locator = "//*[@href='/impact']//button/../../../../following-sibling::*//a"
         self.main_page_go_deeper_locator = "//*[@href='/resources']//button"
         self.main_page_resource_slider_cards_locator = "//*[@href='/resources']//button/../../../../following-sibling::*//a"
+
         self.header_main_buttons_locator = "//header//*[text()='Impact']/../../a"
         self.header_about_us_locator = "//header//*[text()='Impact']/../../div"
         self.header_edg_page_buttons_locator = "//header//*[text()='Impact']/../../div//a"

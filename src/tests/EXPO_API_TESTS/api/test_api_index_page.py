@@ -14,6 +14,7 @@ def test_status_code_index_page():
 
 
 def test_home_title_is_not_empty():
+    print(response_api_json)
     home_title = response_api_json['pageProps']['homeTitle']
     assert home_title is not None and home_title != ''
 

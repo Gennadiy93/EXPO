@@ -153,7 +153,7 @@ def test_home_click_any_main_button_header(setup):
     url = page.url
     page.open_page(url['url_home'])
 
-    buttons = page.are_present('xpath', page.header_main_buttons_locator)
+    buttons = page.are_visible('xpath', page.header_main_buttons_locator)
     random.choice(buttons).click()
     time.sleep(0.5)
 
@@ -166,9 +166,9 @@ def test_home_click_any_about_us_button_header(setup):
     url = page.url
     page.open_page(url['url_home'])
 
-    about_us = page.is_present('xpath', page.header_about_us_locator)
+    about_us = page.is_visible('xpath', page.header_about_us_locator)
     about_us.click()
-    buttons = page.are_present('xpath', page.header_edg_page_buttons_locator)
+    buttons = page.are_visible('xpath', page.header_edg_page_buttons_locator)
     random.choice(buttons).click()
     time.sleep(0.5)
 

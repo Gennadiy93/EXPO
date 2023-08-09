@@ -1,7 +1,5 @@
 from src.EXPO_API.API import API
 from src.EXPO_API.IndexPageSheme import Index_Page
-from pydantic import BaseModel, ValidationError, field_validator, Field
-from typing import List
 
 
 try:

@@ -1,6 +1,4 @@
-from src.EXPO_API.API import API
 from pydantic import BaseModel, ValidationError, field_validator, Field
-from typing import List
 
 
 class ContentInFirstContentInDescription(BaseModel):
@@ -30,21 +28,21 @@ class Description(BaseModel):
 
 
 class Service(BaseModel):
-    pillarTitle: str
-    pillarImage: dict
-    pillarDescription: dict
+    pillar_title: str = Field(alias='pillarTitle')
+    pillar_image: dict = Field(alias='pillarImage')
+    pillar_description: dict = Field(alias='pillarDescription')
 
-    @field_validator('pillarTitle')
+    @field_validator('pillar_title')
     def check_home_pillar_title_in_list_services_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('pillarTitle is empty')
+            raise ValueError('pillar_title is empty')
         else:
             return v
 
-    @field_validator('pillarImage')
+    @field_validator('pillar_image')
     def check_home_pillar_image_in_list_services_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('pillarImage is empty')
+            raise ValueError('pillar_image is empty')
         else:
             return v
 
@@ -52,9 +50,9 @@ class Service(BaseModel):
 class Resource(BaseModel):
     title: str
     slug: str
-    resourceDescription: dict
-    resourceThumbnail: dict
-    categoriesCollection: dict
+    resource_description: dict = Field(alias='resourceDescription')
+    resource_thumbnail: dict = Field(alias='resourceThumbnail')
+    categories_collection: dict = Field(alias='categoriesCollection')
 
     @field_validator('title')
     def check_home_resource_title_in_list_resources_is_not_empty(cls, v):
@@ -70,33 +68,33 @@ class Resource(BaseModel):
         else:
             return v
 
-    @field_validator('resourceThumbnail')
+    @field_validator('resource_thumbnail')
     def check_home_resource_thumbnail_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('resourceThumbnail is empty')
+            raise ValueError('resource_thumbnail is empty')
         else:
             return v
 
-    @field_validator('categoriesCollection')
+    @field_validator('categories_collection')
     def check_home_category_collection_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('categoriesCollection is empty')
+            raise ValueError('categories_collection is empty')
         else:
             return v
 
 
 class Story(BaseModel):
-    pageTitle: str
+    page_title: str = Field(alias='pageTitle')
     slug: str
-    heroLandscapeImage: dict
-    heroSquareImage: dict
-    bannerImage: dict
-    categoriesCollection: dict
+    hero_landscape_image: dict = Field(alias='heroLandscapeImage')
+    hero_square_image: dict = Field(alias='heroSquareImage')
+    banner_image: dict = Field(alias='bannerImage')
+    categories_collection: dict = Field(alias='categoriesCollection')
 
-    @field_validator('pageTitle')
+    @field_validator('page_title')
     def check_home_story_title_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('pageTitle is empty')
+            raise ValueError('page_title is empty')
         else:
             return v
 
@@ -107,75 +105,75 @@ class Story(BaseModel):
         else:
             return v
 
-    @field_validator('heroLandscapeImage')
+    @field_validator('hero_landscape_image')
     def check_home_hero_landscape_image_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('resourceThumbnail is empty')
+            raise ValueError('hero_landscape_image is empty')
         else:
             return v
 
-    @field_validator('heroSquareImage')
+    @field_validator('hero_square_image')
     def check_home_hero_square_image_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('heroSquareImage is empty')
+            raise ValueError('hero_square_image is empty')
         else:
             return v
 
-    @field_validator('bannerImage')
+    @field_validator('banner_image')
     def check_home_banner__image_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('bannerImage is empty')
+            raise ValueError('banner_image is empty')
         else:
             return v
 
-    @field_validator('categoriesCollection')
+    @field_validator('categories_collection')
     def check_home_category_collection_in_list_resources_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('categoriesCollection is empty')
+            raise ValueError('categories_collection is empty')
         else:
             return v
 
 
 class Index_Page(BaseModel):
-    homeTitle: str
-    homeDesc: dict
-    servicesTitle: str
-    servicesDesc: Description
-    resourcesTitle: str
-    resourcesDesc: Description
+    home_title: str = Field(alias='homeTitle')
+    home_desc: dict = Field(alias='homeDesc')
+    services_title: str = Field(alias='servicesTitle')
+    services_desc: Description = Field(alias='servicesDesc')
+    resources_title: str = Field(alias='resourcesTitle')
+    resources_desc: Description = Field(alias='resourcesDesc')
     services: list[Service]
     resources: list[Resource]
-    contactUsFormTitle: str
-    contactUsFormDescription: dict
-    homeSliderCollection: list
-    storyTitle: str
-    storyDesc: Description
-    storyslider: list[Story]
-    autorotateFutureSlider: bool
-    autorotateImpact: bool
-    autorotateServicePillars: bool
-    autorotatePopularResources: bool
-    heroImage: dict
-    marketingBanner: str
+    contact_us_form_title: str = Field(alias='contactUsFormTitle')
+    contact_us_form_description: dict = Field(alias='contactUsFormDescription')
+    home_slider_collection: list = Field(alias='homeSliderCollection')
+    story_title: str = Field(alias='storyTitle')
+    story_desc: Description = Field(alias='storyDesc')
+    story_slider: list[Story] = Field(alias='storyslider')
+    autorotate_future_slider: bool = Field(alias='autorotateFutureSlider')
+    autorotate_impact: bool = Field(alias='autorotateImpact')
+    autorotate_service_pillars: bool = Field(alias='autorotateServicePillars')
+    autorotate_popular_resources: bool = Field(alias='autorotatePopularResources')
+    hero_image: dict = Field(alias='heroImage')
+    marketing_banner: str = Field(alias='marketingBanner')
 
-    @field_validator('homeTitle')
+    @field_validator('home_title')
     def check_home_title_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('Hometitle is empty')
+            raise ValueError('home_title is empty')
         else:
             return v
 
-    @field_validator('servicesTitle')
+    @field_validator('services_title')
     def check_home_services_title_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('servicesTitle is empty')
+            raise ValueError('services_title is empty')
         else:
             return v
 
-    @field_validator('resourcesTitle')
+    @field_validator('resources_title')
     def check_home_resource_title_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('resourcesTitle is empty')
+            raise ValueError('resources_title is empty')
         else:
             return v
 
@@ -193,44 +191,44 @@ class Index_Page(BaseModel):
         else:
             return v
 
-    @field_validator('contactUsFormTitle')
+    @field_validator('contact_us_form_title')
     def check_home_contact_us_form_title_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('contactUsFormTitle is empty')
+            raise ValueError('contact_us_form_title is empty')
         else:
             return v
 
-    @field_validator('storyTitle')
+    @field_validator('story_title')
     def check_home_story_title_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('storyTitle is empty')
+            raise ValueError('story_title is empty')
         else:
             return v
 
-    @field_validator('storyslider')
+    @field_validator('story_slider')
     def check_home_story_slider_collection_is_not_empty(cls, v):
         if v is None or v == '' or len(v) == 0:
-            raise ValueError('storyslider is empty')
+            raise ValueError('story_slider is empty')
         else:
             return v
 
-    @field_validator('homeSliderCollection')
+    @field_validator('home_slider_collection')
     def check_home_slider_collection_is_not_empty(cls, v):
         if v is None or v == '' or len(v) == 0:
-            raise ValueError('homeSliderCollection collection is empty')
+            raise ValueError('home_slider_collection collection is empty')
         else:
             return v
 
-    @field_validator('heroImage')
+    @field_validator('hero_image')
     def check_home_hero_img_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('heroImage is empty')
+            raise ValueError('hero_image is empty')
         else:
             return v
 
-    @field_validator('marketingBanner')
+    @field_validator('marketing_banner')
     def check_home_marketing_banner_is_not_empty(cls, v):
         if v is None or v == '':
-            raise ValueError('marketingBanner is empty')
+            raise ValueError('marketing_banner is empty')
         else:
             return v

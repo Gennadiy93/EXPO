@@ -6,7 +6,7 @@ from urllib3.exceptions import InsecureRequestWarning
 from src.data.configuration import generate_link, url
 
 
-class API():
+class API:
     def __init__(self):
         self.requests = requests
         self.requests.packages.urllib3.disable_warnings(InsecureRequestWarning)

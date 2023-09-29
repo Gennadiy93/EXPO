@@ -1,4 +1,5 @@
 from src.EXPO_API.API import API
+import pytest
 
 try:
     api = API()
@@ -14,7 +15,6 @@ def test_status_code_index_page():
 
 
 def test_home_title_is_not_empty():
-    print(response_api_json)
     home_title = response_api_json['pageProps']['homeTitle']
     assert home_title is not None and home_title != ''
 
@@ -64,7 +64,8 @@ def test_contact_us_form_description_is_not_empty():
     assert contact_us_form_desc is not None and contact_us_form_desc != ''
 
 
-def test_list_services_is_not_empty():
+@pytest.mark.asyncio
+async def test_list_services_is_not_empty():
     list_services = response_api_json['pageProps']['services']
     assert list_services is not None and list_services != '' and len(list_services) != 0
 
@@ -72,7 +73,8 @@ def test_list_services_is_not_empty():
 def test_pillar_title_in_list_services_is_not_empty():
     list_services = response_api_json['pageProps']['services']
     for services in list_services:
-        assert services['pillarTitle'] is not None and services['pillarTitle'] != '', f'Missing pillar title, {services}'
+        assert services['pillarTitle'] is not None and services[
+            'pillarTitle'] != '', f'Missing pillar title, {services}'
 
 
 def test_pillar_image_in_list_services_is_not_empty():
@@ -101,13 +103,15 @@ def test_resource_slug_in_list_resources_is_not_empty():
 def test_resource_thumbnail_in_list_resources_is_not_empty():
     list_resources = response_api_json['pageProps']['resources']
     for resource in list_resources:
-        assert resource['resourceThumbnail'] is not None and resource['resourceThumbnail'] != '', f'Missing resource thumbnail{resource}'
+        assert resource['resourceThumbnail'] is not None and resource[
+            'resourceThumbnail'] != '', f'Missing resource thumbnail{resource}'
 
 
 def test_categories_collection_in_list_resources_is_not_empty():
     list_resources = response_api_json['pageProps']['resources']
     for resource in list_resources:
-        assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != '' and len(resource['categoriesCollection']) != 0, f'Missing resource categories{resource}'
+        assert resource['categoriesCollection'] is not None and resource['categoriesCollection'] != '' and len(
+            resource['categoriesCollection']) != 0, f'Missing resource categories{resource}'
 
 
 def test_home_slider_collection_is_not_empty():
@@ -137,7 +141,8 @@ def test_thumbnail_in_home_slider_collection_is_not_empty():
     home_slider_collection = response_api_json['pageProps']['homeSliderCollection']
     for item in home_slider_collection:
         if 'onlineEventOpeningHoursNew' in item.keys():
-            assert item['futureBannerEvent'] is not None and item['futureBannerEvent'] != '', f'Missing event banner{item}'
+            assert item['futureBannerEvent'] is not None and item[
+                'futureBannerEvent'] != '', f'Missing event banner{item}'
         elif 'newsTitle' in item.keys():
             assert item['futureBannerNews'] is not None and item['futureBannerNews'] != '', f'Missing news banner{item}'
 
@@ -171,13 +176,15 @@ def test_story_slug_in_list_stories_is_not_empty():
 def test_story_thumbnail_in_list_stories_is_not_empty():
     story_slider = response_api_json['pageProps']['storyslider']
     for story in story_slider:
-        assert story['heroSquareImage'] is not None and story['heroSquareImage'] != '', f'Missing story thumbnail{story}'
+        assert story['heroSquareImage'] is not None and story[
+            'heroSquareImage'] != '', f'Missing story thumbnail{story}'
 
 
 def test_categories_collection_in_list_stories_is_not_empty():
     story_slider = response_api_json['pageProps']['storyslider']
     for story in story_slider:
-        assert story['categoriesCollection'] is not None and story['categoriesCollection'] != '' and len(story['categoriesCollection']) != 0, f'Missing story categories{story}'
+        assert story['categoriesCollection'] is not None and story['categoriesCollection'] != '' and len(
+            story['categoriesCollection']) != 0, f'Missing story categories{story}'
 
 
 def test_marketing_banner_is_not_empty():

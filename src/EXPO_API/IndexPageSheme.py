@@ -1,6 +1,5 @@
 from pydantic import BaseModel, ValidationError, field_validator, Field
 
-
 class ContentInFirstContentInDescription(BaseModel):
     data: dict
     marks: list

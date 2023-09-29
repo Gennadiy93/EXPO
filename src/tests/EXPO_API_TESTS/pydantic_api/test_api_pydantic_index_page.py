@@ -12,5 +12,4 @@ except BaseException:
 
 def test_validate_index_page():
     index_page = Index_Page.model_validate(response_api_json)
-    print(index_page.resources)
 

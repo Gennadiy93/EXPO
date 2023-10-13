@@ -1,6 +1,8 @@
 from typing import Dict, Any
 
+import httpx
 import requests
+from httpx import Response
 from requests.structures import CaseInsensitiveDict
 from urllib3.exceptions import InsecureRequestWarning
 from src.data.configuration import generate_link, url
@@ -33,6 +35,12 @@ class API:
     def get_index_page(self) -> Dict[str, Any]:
         response = self.requests.get(self.url_index_page)
         return API.return_formatted(response.status_code, response.json())
+
+    async def get_index_page_httpx(self) -> Response:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(self.url_index_page)
+            return response
+
 
     def get_impact_page(self) -> Dict[str, Any]:
         response = self.requests.get(self.url_impact_page)

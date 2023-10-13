@@ -1,11 +1,15 @@
 from src.EXPO_API.API import API
 import pytest
+import httpx
+import asyncio
 
 try:
     api = API()
     response_api = api.get_index_page()
     status_code_api = response_api['status']
     response_api_json = response_api['json']
+
+    response_api_httpx = asyncio.run(api.get_index_page_httpx())
 except BaseException:
     raise Exception('Error')
 

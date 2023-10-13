@@ -9,11 +9,10 @@ from selenium.webdriver.chrome.service import Service
 
 
 @pytest.fixture(scope='function')
-async def setup(get_webdriver):
+def setup(get_webdriver):
     driver = get_webdriver
     wait = WebDriverWait(driver, 10)  # Wait for up to 10 seconds
-    actions = ActionChains(driver)
-    yield driver, wait, actions
+    yield driver, wait
     driver.quit()
 
 

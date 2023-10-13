@@ -7,7 +7,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
 
-
 @pytest.fixture(scope='function')
 def setup(get_webdriver):
     driver = get_webdriver
